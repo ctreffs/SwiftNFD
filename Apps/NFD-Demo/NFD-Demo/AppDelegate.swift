@@ -26,15 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return string.components(separatedBy: ";")
     }
 
-    func applicationDidFinishLaunching(_: Notification) {
-        // Insert code here to initialize your application
-    }
-
-    func applicationWillTerminate(_: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
         true
     }
 }
