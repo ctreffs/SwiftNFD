@@ -14,7 +14,7 @@ Native File Dialog is a tiny, neat C library that portably invokes native file o
  - Support for Vista's modern `IFileDialog` on Windows.
  - Support for non-deprecated Cocoa APIs on OS X.
  - GTK3 dialog on Linux.
- - Tested, works alongside [http://www.libsdl.org](SDL2) on all platforms, for the game developers out there.
+ - Tested, works alongside [SDL2](https://www.libsdl.org) on all platforms, for the game developers out there.
 
 ## Usage ##
 
@@ -40,7 +40,7 @@ case let .failure(error):
 
 You can find a macOS demo application in `/Apps/NFD-Demo/NFD-Demo.xcodeproj`
 
-![](Resources/NFD-Demo.png)
+![NFD-Demo](Resources/NFD-Demo.png)
 
 
 ## File Filter Syntax
@@ -60,13 +60,13 @@ A wildcard filter is always added to every dialog.
 
 # Copyright and Credit
 
-Copyright &copy; 2014-2019 [Frogtoss Games](http://www.frogtoss.com), Inc.
+Copyright &copy; 2014-2019 [Frogtoss Games](https://www.frogtoss.com), Inc.
 File [LICENSE](LICENSE) covers all files in this repo.
 
 Native File Dialog by Michael Labbe
 <mike@frogtoss.com>
 
-Tomasz Konojacki for [microutf8](http://puszcza.gnu.org.ua/software/microutf8/)
+Tomasz Konojacki for [microutf8](https://puszcza.gnu.org.ua/software/microutf8/)
 
 [Denis Kolodin](https://github.com/DenisKolodin) for mingw support.
 
@@ -76,6 +76,6 @@ Tomasz Konojacki for [microutf8](http://puszcza.gnu.org.ua/software/microutf8/)
 
 Directed support for this work is available from the original author under a paid agreement.
 
-[Contact Frogtoss Games](http://www.frogtoss.com/pages/contact.html).
+[Contact Frogtoss Games](https://www.frogtoss.com/pages/contact.html).
 
 
