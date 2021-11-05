@@ -1,4 +1,4 @@
-NFD_ROOT = 3rdparty/nativefiledialog-extended
+NFD_ROOT = 3rdparty/nativefiledialog
 CLIB_ROOT = Sources/CNFD
 
 .PHONY: copyLibFiles
