@@ -15,8 +15,5 @@ let package = Package(
         .target(name: "CNFD",
                 exclude: ["LICENSE"],
                 linkerSettings: [.linkedFramework("AppKit", .when(platforms: [.macOS]))]),
-        .testTarget(
-            name: "NFDTests",
-            dependencies: ["NFD"]),
     ]
 )
