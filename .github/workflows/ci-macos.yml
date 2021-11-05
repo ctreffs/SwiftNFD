@@ -2,9 +2,9 @@ name: macOS
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    types: [labeled]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,55 +13,16 @@ jobs:
     strategy:
       matrix:
         xcode: ["13.0"]
-    if: contains( github.event.pull_request.labels.*.name, 'ci-macOS') || contains( github.event.pull_request.labels.*.name, 'ci-all')
     steps:
-      - name: Add access token to keychain
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
-        run: |
-          echo "\
-          protocol=https
-          host=github.com
-          username=Personal Access Token
-          password=$GITHUB_TOKEN" | git credential-osxkeychain store
-
       - name: Checkout
         uses: actions/checkout@v2.3.4
-        with:
-          token: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
-
-      - name: Restore cached Homebrew dependencies
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            ~/Library/Caches/Homebrew/sdl2--*
-            ~/Library/Caches/Homebrew/downloads/*--sdl2-*
-          key: ${{ runner.os }}-brew-sdl2-${{ hashFiles('.github/brew-formulae') }}
-          restore-keys: ${{ runner.os }}-brew-sdl2-
-
-      - name: Restore cached SPM dependencies
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            .build/repositories
-            .build/checkouts
-          key: ${{ runner.os }}-spm-deps-${{ hashFiles('**/Package.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-spm-deps-
 
       - name: Select Xcode ${{ matrix.xcode }}
         run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
 
-      - name: Install dependencies
-        run: |
-          brew install sdl2
-
       - name: Build Release
         run: make build-release
         env:
-          FRB_ENABLE_GRAPHICS_VULKAN: 0 # disable Vulkan on macOS CI until Vulkan backend support is finished.
           DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
       - name: Upload build artifacts

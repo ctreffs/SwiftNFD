@@ -2,9 +2,9 @@ name: Linux
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    types: [labeled]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -15,52 +15,13 @@ jobs:
         swift: ["latest"]
     container:
       image: swift:${{ matrix.swift }}
-    if: contains( github.event.pull_request.labels.*.name, 'ci-linux') || contains( github.event.pull_request.labels.*.name, 'ci-all')
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
-        with:
-          token: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
-
-      - name: Setup private access
-        run: |
-          git config --global credential.helper ""
-          git config --global --add credential.helper store
-          echo "https://x-access-token:${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}@github.com" >> ~/.git-credentials
-          git config --global url."https://github.com/".insteadof git@github.com:
-
-      - name: Restore APT cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: /var/cache/apt
-          key: ${{ runner.os }}-apt
-
-      - name: Restore cached SPM dependencies
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            .build/repositories
-            .build/checkouts
-          key: ${{ runner.os }}-spm-deps-${{ hashFiles('**/Package.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-spm-deps-
-
-      - name: Install dependencies
-        run: |
-          apt update
-          apt-get install -y sqlite3
-          apt-get install -y libsqlite3-dev
-          apt-get install -y libsdl2-dev
-          apt-get install -y libvulkan-dev
-          apt-get install -y libvulkan1
-          apt-get install -y vulkan-utils
 
       - name: Build Release
         run: make build-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_FIREBLADE_ACCESS_TOKEN }}
 
       - name: Upload build artifacts
         if: failure()
