@@ -740,7 +740,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g23-7w-vtZ">
-                        <rect key="frame" x="19" y="36" width="107" height="16"/>
+                        <rect key="frame" x="19" y="36" width="136" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Filter extensions:" id="9fF-gv-7kp">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -756,6 +756,7 @@
                     <constraint firstItem="gUS-A5-Ad4" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="Mid-Yw-qm4"/>
                     <constraint firstItem="PSe-qy-six" firstAttribute="top" secondItem="gUS-A5-Ad4" secondAttribute="bottom" constant="10" id="Nh7-JQ-yNs"/>
                     <constraint firstItem="gUS-A5-Ad4" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="10" id="PqI-fY-sBE"/>
+                    <constraint firstItem="g23-7w-vtZ" firstAttribute="trailing" secondItem="Kdw-LU-IUh" secondAttribute="trailing" id="QGB-Pg-UoZ"/>
                     <constraint firstItem="pYX-Kr-SEE" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="RCZ-cg-vwe"/>
                     <constraint firstItem="gUS-A5-Ad4" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="XSZ-ii-otP"/>
                     <constraint firstItem="pYX-Kr-SEE" firstAttribute="top" secondItem="PSe-qy-six" secondAttribute="bottom" constant="10" id="dcl-vn-sqz"/>
