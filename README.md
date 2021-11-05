@@ -1,5 +1,7 @@
 # Swift Native File Dialog
 
+[![license](https://img.shields.io/badge/license-zlib-brightgreen.svg)](LICENSE)
+
 A thin Swift wrapper around the popular [mlabbe/nativefiledialog](https://github.com/mlabbe/nativefiledialog) library by Michael Labbe.
 
 Native File Dialog is a tiny, neat C library that portably invokes native file open, folder select and save dialogs. Write dialog code once and have it pop up native dialogs on all supported platforms.  Avoid linking large dependencies like wxWidgets and qt.
