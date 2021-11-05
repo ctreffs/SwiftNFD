@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NFD_Demo" customModuleProvider="target">
             <connections>
+                <outlet property="fileExtFilters" destination="fm7-vN-YYo" id="3XF-HD-K8L"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -684,14 +685,14 @@
         <window title="NFD-Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="174" height="140"/>
+            <rect key="contentRect" x="335" y="390" width="174" height="181"/>
             <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1415"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="174" height="140"/>
+                <rect key="frame" x="0.0" y="0.0" width="174" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-A5-Ad4">
-                        <rect key="frame" x="27" y="103" width="110" height="32"/>
+                        <rect key="frame" x="32" y="144" width="110" height="32"/>
                         <buttonCell key="cell" type="push" title="Open Dialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jqf-Fl-jvU">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -701,7 +702,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PSe-qy-six">
-                        <rect key="frame" x="3" y="73" width="158" height="32"/>
+                        <rect key="frame" x="8" y="114" width="158" height="32"/>
                         <buttonCell key="cell" type="push" title="Open DialogMultiple" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1gy-Pk-mvI">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -711,7 +712,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-Kr-SEE">
-                        <rect key="frame" x="13" y="43" width="138" height="32"/>
+                        <rect key="frame" x="18" y="84" width="138" height="32"/>
                         <buttonCell key="cell" type="push" title="Open SaveDialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yY1-z6-Lys">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -721,7 +722,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SIZ-cm-hUs">
-                        <rect key="frame" x="14" y="13" width="136" height="32"/>
+                        <rect key="frame" x="19" y="54" width="136" height="32"/>
                         <buttonCell key="cell" type="push" title="Open PickFolder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zDr-b1-WE2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -730,8 +731,27 @@
                             <action selector="openPickFolder:" target="Voe-Tx-rLC" id="JhL-fv-Cob"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kdw-LU-IUh">
+                        <rect key="frame" x="21" y="13" width="132" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="fm7-vN-YYo">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g23-7w-vtZ">
+                        <rect key="frame" x="19" y="36" width="107" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Filter extensions:" id="9fF-gv-7kp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Kdw-LU-IUh" firstAttribute="top" secondItem="g23-7w-vtZ" secondAttribute="bottom" constant="2" id="4No-eV-wj2"/>
+                    <constraint firstItem="Kdw-LU-IUh" firstAttribute="leading" secondItem="g23-7w-vtZ" secondAttribute="leading" id="Amm-rt-YRf"/>
+                    <constraint firstAttribute="trailing" secondItem="Kdw-LU-IUh" secondAttribute="trailing" constant="21" id="E4u-0E-0FA"/>
                     <constraint firstItem="SIZ-cm-hUs" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="IKl-eo-jFW"/>
                     <constraint firstItem="gUS-A5-Ad4" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="Mid-Yw-qm4"/>
                     <constraint firstItem="PSe-qy-six" firstAttribute="top" secondItem="gUS-A5-Ad4" secondAttribute="bottom" constant="10" id="Nh7-JQ-yNs"/>
@@ -739,13 +759,17 @@
                     <constraint firstItem="pYX-Kr-SEE" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="RCZ-cg-vwe"/>
                     <constraint firstItem="gUS-A5-Ad4" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="XSZ-ii-otP"/>
                     <constraint firstItem="pYX-Kr-SEE" firstAttribute="top" secondItem="PSe-qy-six" secondAttribute="bottom" constant="10" id="dcl-vn-sqz"/>
+                    <constraint firstItem="Kdw-LU-IUh" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="dmX-ES-MWW"/>
+                    <constraint firstAttribute="bottom" secondItem="Kdw-LU-IUh" secondAttribute="bottom" constant="13" id="fIK-mN-pBE"/>
                     <constraint firstItem="SIZ-cm-hUs" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="fVI-uG-VPy"/>
-                    <constraint firstItem="PSe-qy-six" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="10" id="gje-Mj-69O"/>
                     <constraint firstItem="pYX-Kr-SEE" firstAttribute="centerX" secondItem="PSe-qy-six" secondAttribute="centerX" id="gtS-wS-9Di"/>
                     <constraint firstItem="SIZ-cm-hUs" firstAttribute="top" secondItem="pYX-Kr-SEE" secondAttribute="bottom" constant="10" id="mpC-uy-HQY"/>
+                    <constraint firstItem="Kdw-LU-IUh" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="ts6-D0-d1R"/>
+                    <constraint firstItem="Kdw-LU-IUh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="udf-1m-sgA"/>
+                    <constraint firstItem="g23-7w-vtZ" firstAttribute="top" secondItem="SIZ-cm-hUs" secondAttribute="bottom" constant="9" id="v0u-l7-Y61"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="47" y="290"/>
+            <point key="canvasLocation" x="47" y="310.5"/>
         </window>
     </objects>
 </document>
