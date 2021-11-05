@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.1
 import PackageDescription
 
 let package = Package(
@@ -15,7 +15,6 @@ let package = Package(
             dependencies: ["CNFD"]
         ),
         .target(name: "CNFD",
-                exclude: ["LICENSE"],
-                linkerSettings: [.linkedFramework("AppKit", .when(platforms: [.macOS]))]),
+                exclude: ["LICENSE"]),
     ]
 )

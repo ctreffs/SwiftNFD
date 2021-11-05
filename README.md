@@ -1,6 +1,9 @@
 # Swift Native File Dialog
 
 [![license](https://img.shields.io/badge/license-zlib-brightgreen.svg)](LICENSE)
+[![macOS](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-macos.yml/badge.svg)](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-macos.yml)
+[![Linux](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-linux.yml/badge.svg)](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-linux.yml)
+[![Windows](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-windows.yml/badge.svg)](https://github.com/ctreffs/SwiftNFD/actions/workflows/ci-windows.yml)
 
 A thin Swift wrapper around the popular [mlabbe/nativefiledialog](https://github.com/mlabbe/nativefiledialog) library by Michael Labbe.
 

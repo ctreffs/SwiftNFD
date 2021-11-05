@@ -1,0 +1,38 @@
+name: Linux
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  linux-build-release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        swift: ["latest"]
+    container:
+      image: swift:${{ matrix.swift }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Build Release
+        run: make build-release
+
+      - name: Upload build artifacts
+        if: failure()
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: build-artifacts-${{ matrix.swift }}-${{ github.run_id }}
+          path: |
+            *.lcov
+            .build/*.yaml
+            .build/**/*.a
+            .build/**/*.so
+            .build/**/*.dylib
+            .build/**/*.dSYM
+            .build/**/*.json

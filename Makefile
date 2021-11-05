@@ -16,3 +16,11 @@ copyLibFiles:
 .PHONY: clearLibFiles
 clearLibFiles:
 	rm -rdf ${CLIB_ROOT}/*
+
+.PHONY: build-release
+build-release:
+	swift build -c release
+
+.PHONY: build-release-verbose
+build-release-verbose:
+	swift build -c release -v
