@@ -2,7 +2,7 @@
 
 /// Native File Dialog
 public enum NFD {
-    public typealias Result<Value> = Swift.Result<Value?, NFD.Error> where Value: Hashable
+    public typealias Result<Value> = Swift.Result<Value, NFD.Error> where Value: Hashable
 
     /// Single file open dialog
     ///
@@ -37,7 +37,7 @@ public enum NFD {
     ///   - filter: An array of filename extensions or UTIs that represent the allowed file types for the dialog.
     ///   - defaultPath: The current directory shown in the dialog.
     /// - Returns: On success selected file paths or nil if user did cancel; On failure the error;
-    public static func OpenDialogMultiple(filter: [String]? = nil, defaultPath: String? = nil) -> Result<[String]> {
+    public static func OpenDialogMultiple(filter: [String]? = nil, defaultPath: String? = nil) -> Result<[String]?> {
         let filterList: String? = filter?.joined(separator: ";")
         var pathSet = nfdpathset_t()
         let nfdResult = NFD_OpenDialogMultiple(filterList, defaultPath, &pathSet)
