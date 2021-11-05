@@ -6,12 +6,14 @@ let package = Package(
     products: [
         .library(
             name: "NFD",
-            targets: ["NFD"]),
+            targets: ["NFD"]
+        ),
     ],
     targets: [
         .target(
             name: "NFD",
-            dependencies: ["CNFD"]),
+            dependencies: ["CNFD"]
+        ),
         .target(name: "CNFD",
                 exclude: ["LICENSE"],
                 linkerSettings: [.linkedFramework("AppKit", .when(platforms: [.macOS]))]),

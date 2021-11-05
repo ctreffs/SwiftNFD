@@ -1,0 +1,10 @@
+included:
+  - Package.swift
+  - Sources
+  - Tests
+  - Apps
+excluded:
+  - Scripts
+  - .build
+  - .swiftpm
+  - .github
