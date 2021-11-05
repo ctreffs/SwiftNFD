@@ -4,6 +4,8 @@
   http://www.frogtoss.com/labs
 */
 
+#if __has_include(<gtk/gtk.h>)
+
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
@@ -165,7 +167,7 @@ static void WaitForCleanup(void)
                                  
 /* public */
 
-nfdresult_t NFD_OpenDialog( const nfdchar_t *filterList,
+nfdresult_t NFD_OpenDialog( const char *filterList,
                             const nfdchar_t *defaultPath,
                             nfdchar_t **outPath )
 {    
@@ -377,3 +379,5 @@ nfdresult_t NFD_PickFolder(const nfdchar_t *defaultPath,
     
     return result;
 }
+
+#endif // __has_include(<gtk/gtk.h>)
