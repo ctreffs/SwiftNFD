@@ -3,4 +3,4 @@
 	url = https://github.com/mlabbe/nativefiledialog.git
 [submodule "3rdparty/nativefiledialog-extended"]
 	path = 3rdparty/nativefiledialog-extended
-	url = https://github.com/nativefiledialog-extended.git
+	url = https://github.com/btzy/nativefiledialog-extended.git
