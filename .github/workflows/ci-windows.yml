@@ -16,7 +16,7 @@ jobs:
           - tag: 5.5-RELEASE
             branch: swift-5.5-release
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.7.0
         with:
           fetch-depth: 1
       - uses: seanmiddleditch/gha-setup-vsdevenv@v4
