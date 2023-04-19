@@ -43,4 +43,4 @@ jobs:
             Copy-Item "$env:SDKROOT\usr\share\winsdk.modulemap" -destination "$env:UniversalCRTSdkDir\Include\$env:UCRTVersion\um\module.modulemap"
 
       - name: Build Release
-        run: make build-release-verbose
+        run: swift build -c release
