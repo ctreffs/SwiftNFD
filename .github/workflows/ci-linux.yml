@@ -18,14 +18,14 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v3.7.0
 
       - name: Build Release
         run: swift build -c release
 
       - name: Upload build artifacts
         if: failure()
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v3.2.2
         with:
           name: build-artifacts-${{ matrix.swift }}-${{ github.run_id }}
           path: |
